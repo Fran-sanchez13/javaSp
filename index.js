@@ -48,32 +48,19 @@ const pizzas = [
 
 // ENTREGA NRO 3 NUCBA
 
-// document.getElementById('pizza'). addEventListener('submit', (e)){
-//   e.preventDefault();
+  document.getElementById('pizzaForm'). addEventListener('submit', function(e){
+  e.preventDefault();
 
-//   const input = document.getElementById('numberInput').value;
-//   const results = document.getElementById('resultsPizza');
+   const input = document.getElementById('numberInput').value;
+   const results = document.getElementById('resultsPizza');
 
-//   if(input){
-//     results.textContent = `La pizza que buscas es: ${input}`;
-//   }
-//   else{
-//     results.textContent = 'Por favor, ingrese un numero valido',
-//   }
-
-
-
-// }
-
-document.getElementById('pizzaForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita que el formulario se envíe y recargue la página
-  
-  const input = document.getElementById('numberInput').value;
-  const resultado = document.getElementById('resultsPizza');
-
-  if (input) {
-      resultado.textContent = `Resultado de la búsqueda para el número: ${input}`;
-  } else {
-      resultado.textContent = 'Por favor, introduce un número válido.';
+   if(input){
+     results.textContent = `La pizza Nro ${input} es:`;
+   }
+   else{
+    results.textContent = 'Por favor, ingrese un numero valido';
   }
+
 });
+
+
