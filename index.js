@@ -46,21 +46,45 @@ const pizzas = [
   },
 ];
 
-// ENTREGA NRO 3 NUCBA
 
-  document.getElementById('pizzaForm'). addEventListener('submit', function(e){
+
+//ENTREGA
+
+// Escuchar el envío del formulario
+document.getElementById('pizzaForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-   const input = document.getElementById('numberInput').value;
-   const results = document.getElementById('resultsPizza');
+  // Obtener el número ingresado y convertirlo a entero
+  const input = parseInt(document.getElementById('numberInput').value);
+  const pizza = pizzas.find(p => p.id === input);
 
-   if(input){
-     results.textContent = `La pizza Nro ${input} es:`;
-   }
-   else{
-    results.textContent = 'Por favor, ingrese un numero valido';
+  // Elementos de resultado
+  const pizzaName = document.getElementById('pizzaName');
+  const pizzaPrice = document.getElementById('pizzaPrice');
+  const pizzaIngredients = document.getElementById('pizzaIngredients');
+  const pizzaImg = document.getElementById('pizzaImg');
+  const errorMessage = document.getElementById('errorMessage');
+
+  if (pizza) {
+    // Mostrar la información de la pizza
+    pizzaName.textContent = `Nombre: ${pizza.nombre}`;
+    pizzaPrice.textContent = `Precio: $${pizza.precio}`;
+    pizzaIngredients.textContent = `Ingredientes: ${pizza.ingredientes.join(', ')}`;
+    console.log(pizza.imagen);
+    
+    pizzaImg.src = pizza.imagen;
+    pizzaImg.style.display = 'block'; // Mostrar la imagen
+
+    // Ocultar el mensaje de error
+    errorMessage.textContent = '';
+  } else {
+    // Mostrar mensaje de error si no existe la pizza
+    errorMessage.textContent = 'Elige un número del 1 al 5.';
+    
+    // Limpiar los detalles de la pizza y ocultar la imagen
+    pizzaName.textContent = '';
+    pizzaPrice.textContent = '';
+    pizzaIngredients.textContent = '';
+    pizzaImg.style.display = 'none';
   }
-
 });
-
-
