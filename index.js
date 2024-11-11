@@ -48,17 +48,17 @@ const pizzas = [
 
 
 
-//ENTREGA
+//ENTREGA NRO_03 NUCBA
 
-// Escuchar el envío del formulario
+// formulario
 document.getElementById('pizzaForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  // Obtener el número ingresado y convertirlo a entero
+  // pasando a entero
   const input = parseInt(document.getElementById('numberInput').value);
   const pizza = pizzas.find(p => p.id === input);
 
-  // Elementos de resultado
+  // elementos
   const pizzaName = document.getElementById('pizzaName');
   const pizzaPrice = document.getElementById('pizzaPrice');
   const pizzaIngredients = document.getElementById('pizzaIngredients');
@@ -66,22 +66,22 @@ document.getElementById('pizzaForm').addEventListener('submit', function(e) {
   const errorMessage = document.getElementById('errorMessage');
 
   if (pizza) {
-    // Mostrar la información de la pizza
+    // ifno de la pizza
     pizzaName.textContent = `Nombre: ${pizza.nombre}`;
     pizzaPrice.textContent = `Precio: $${pizza.precio}`;
     pizzaIngredients.textContent = `Ingredientes: ${pizza.ingredientes.join(', ')}`;
     console.log(pizza.imagen);
     
     pizzaImg.src = pizza.imagen;
-    pizzaImg.style.display = 'block'; // Mostrar la imagen
+    pizzaImg.style.display = 'block'; //mostrar img
 
-    // Ocultar el mensaje de error
+    // mensaje error
     errorMessage.textContent = '';
   } else {
-    // Mostrar mensaje de error si no existe la pizza
+    // mensaje error si no existe pizza
     errorMessage.textContent = 'Elige un número del 1 al 5.';
     
-    // Limpiar los detalles de la pizza y ocultar la imagen
+    // limpiar detalles
     pizzaName.textContent = '';
     pizzaPrice.textContent = '';
     pizzaIngredients.textContent = '';
