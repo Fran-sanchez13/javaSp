@@ -47,44 +47,46 @@ const pizzas = [
 ];
 
 
+//ENTRGA NUCBA_03:
 
-//ENTREGA NRO_03 NUCBA
+    const form = document.getElementById("pizzaForm");
+    const input = document.getElementById("numberInput");
+    const resultsContainer = document.getElementById("resultsPizza");
 
-// formulario
-document.getElementById('pizzaForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+//contenedor vacio
+resultsContainer.innerHTML = "";
 
-  // pasando a entero
-  const input = parseInt(document.getElementById('numberInput').value);
-  const pizza = pizzas.find(p => p.id === input);
+form.addEventListener("submit", (event) => {
+    event.preventDefault();//evita recarga de la pagina
 
-  // elementos
-  const pizzaName = document.getElementById('pizzaName');
-  const pizzaPrice = document.getElementById('pizzaPrice');
-  const pizzaIngredients = document.getElementById('pizzaIngredients');
-  const pizzaImg = document.getElementById('pizzaImg');
-  const errorMessage = document.getElementById('errorMessage');
 
-  if (pizza) {
-    // ifno de la pizza
-    pizzaName.textContent = `Nombre: ${pizza.nombre}`;
-    pizzaPrice.textContent = `Precio: $${pizza.precio}`;
-    pizzaIngredients.textContent = `Ingredientes: ${pizza.ingredientes.join(', ')}`;
-    console.log(pizza.imagen);
+    const pizzaId = parseInt(input.value);
+      if(isNaN(pizzaId)){
+        renderError("indique un valor del 1 al 10");
+        return
+      }
     
-    pizzaImg.src = pizza.imagen;
-    pizzaImg.style.display = 'block'; //mostrar img
-
-    // mensaje error
-    errorMessage.textContent = '';
-  } else {
-    // mensaje error si no existe pizza
-    errorMessage.textContent = 'Elige un número del 1 al 5.';
-    
-    // limpiar detalles
-    pizzaName.textContent = '';
-    pizzaPrice.textContent = '';
-    pizzaIngredients.textContent = '';
-    pizzaImg.style.display = 'none';
-  }
+    const pizza = pizzas.find((p) => p.id === pizzaId);
+    if(pizza){
+      renderPizza(pizza);
+      localStorage.setItem("lastpizza", JSON.stringify(pizza));
+    }else{
+      renderError("No existe una pizza con ese valor");
+    }
 });
+
+function renderPizza(pizza){
+  resultsContainer.innerHTML = `
+    <div class = "pizzaCard">
+      <h2>${pizza.nombre}</h2>
+      <img src = "${pizza.imagen}" alt = "${pizza.nombre}">
+      <p>Precio: $${pizza.precio}</p>
+      <p>Ingredientes: ${pizza.ingredientes.join(", ")}</p>
+    </div>
+  `;
+}
+
+
+function renderError(message){
+  resultsContainer.innerHTML = `<p class = "error"> ${message}</p>`;
+}

@@ -12,8 +12,8 @@ body{
 
 .login{
     border: 2px solid white;
-    width: 400px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background: url(img/number-pizzaInput.jpg);
     color: white;
     border-radius: 20px;
@@ -79,4 +79,33 @@ button{
 .login button:hover{
     background-color: white;
     color: black;
+}
+
+/* estilos pizzas */
+
+.pizzaCard {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.pizzaCard img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
 }
