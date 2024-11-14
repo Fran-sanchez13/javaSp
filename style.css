@@ -6,14 +6,14 @@ body{
     background-image: url(img/backgound.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     position: relative;
 }
 
 .login{
     border: 2px solid white;
-    width: 600px;
-    height: 600px;
+    max-width: 100% ;
+    height: auto;
     background: url(img/number-pizzaInput.jpg);
     color: white;
     border-radius: 20px;
@@ -31,8 +31,8 @@ form{
     padding: 40px;
     width: 100%;
     height: 100%;
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
     gap: 5px;
 }
 
@@ -40,7 +40,7 @@ h1{
     font-weight: normal;
     font-size: 24px;
     text-shadow: 0, 0, 2px rgba(0, 0, 0, 0.5);
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -81,20 +81,20 @@ button{
     color: black;
 }
 
-/* estilos pizzas */
+/* visual pizza container */
 
 .pizzaCard {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border: 1px solid #ddd;
     padding: 5px;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 1rem;
     text-align: center;
 }
 
 .pizzaCard img{
-    max-width: 100%;
+    max-width: 200px;
     height: auto;
     border-radius: 8px;
     overflow: hidden;

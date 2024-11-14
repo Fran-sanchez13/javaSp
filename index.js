@@ -1,7 +1,7 @@
 const pizzas = [
   {
     id: 1,
-    nombre: "pizza de Muzzarella",
+    nombre: "Pizza de Muzzarella",
     precio: 500,
     ingredientes: ["Muzzarella", "Tomate", "Aceitunas"],
     imagen: "./img/muzzarella.png",
@@ -9,7 +9,7 @@ const pizzas = [
 
   {
     id: 2,
-    nombre: "pizza de Cebolla",
+    nombre: "Pizza de Cebolla",
     precio: 1500,
     ingredientes: ["Muzzarella", "Tomate", "Cebolla"],
     imagen: "./img/cebolla.png",
@@ -17,7 +17,7 @@ const pizzas = [
 
   {
     id: 3,
-    nombre: "pizza 4 Quesos",
+    nombre: "Pizza 4 Quesos",
     precio: 1380,
     ingredientes: [
       "Muzzarella",
@@ -31,7 +31,7 @@ const pizzas = [
 
   {
     id: 4,
-    nombre: "pizza Especial",
+    nombre: "Pizza Especial",
     precio: 1000,
     ingredientes: ["Muzzarella", "Tomate", "Rucula", "Jamón"],
     imagen: "./img/especial.png",
@@ -39,7 +39,7 @@ const pizzas = [
 
   {
     id: 5,
-    nombre: "pizza con Anana",
+    nombre: "Pizza con Anana",
     precio: 600,
     ingredientes: ["Muzzarella", "Tomate", "Anana"],
     imagen: "./img/anana.png",
@@ -71,10 +71,10 @@ form.addEventListener("submit", (event) => {
       renderPizza(pizza);
       localStorage.setItem("lastpizza", JSON.stringify(pizza));
     }else{
-      renderError("No existe una pizza con ese valor");
+      renderError("Indica un valor del 1 al 5");
     }
 });
-
+//mostrar la pizza segun nro del usuario
 function renderPizza(pizza){
   resultsContainer.innerHTML = `
     <div class = "pizzaCard">
