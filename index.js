@@ -47,11 +47,12 @@ const pizzas = [
 ];
 
 
-//ENTRGA NUCBA_03:
+
 
     const form = document.getElementById("pizzaForm");
     const input = document.getElementById("numberInput");
     const resultsContainer = document.getElementById("resultsPizza");
+   
 
 //contenedor vacio
 resultsContainer.innerHTML = "";
